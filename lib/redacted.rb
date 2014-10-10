@@ -1,7 +1,7 @@
-require "redacted/version"
+require 'redacted/version'
 require 'redacted/engine.rb' if defined?(Rails)
-require 'redacted/railtie.rb' if defined?(Rails)
-require "faker"
+require 'redacted/railtie.rb'# if defined?(Rails)
+require 'faker'
 
 module Redacted
   class Redact

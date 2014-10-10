@@ -12,10 +12,12 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install redacted
-
+In your application.css, include the css file:
+```
+/*
+ *= require redacted
+ */
+```
 ## Usage
 
 TODO: Write usage instructions here
