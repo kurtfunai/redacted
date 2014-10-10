@@ -1,4 +1,7 @@
 require "redacted/version"
+require 'redacted/engine.rb' if defined?(Rails)
+require 'redacted/railtie.rb' if defined?(Rails)
+require "faker"
 
 module Redacted
   class Redact
@@ -8,8 +11,8 @@ module Redacted
     end
 
     def self.html str
-      length = str.length
-      "&#x2588;" * length unless length.zero?
+      Faker::Lorem.characters(str.length) unless str.length.zero?
     end
   end
 end
+
