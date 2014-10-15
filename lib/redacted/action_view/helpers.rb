@@ -8,7 +8,9 @@ module Redacted
 
       def redact_html str
         return '' unless str
-        "<span class=\"redacted-text\">#{Faker::Lorem.characters(str.length)}</span>".html_safe
+        word_count = str.split.size
+        fake_text = Faker::Lorem.words(word_count).join(' ')
+        "<span class=\"redacted-text\">#{fake_text.slice(0, str.length)}</span>".html_safe
       end
     end
   end
