@@ -1,7 +1,7 @@
 module Redacted
   module ActionView
     module Helpers
-      def redact_text str
+      def ascii_redact str
         length = str.length
         "\u2588" * length unless length.zero?
       end

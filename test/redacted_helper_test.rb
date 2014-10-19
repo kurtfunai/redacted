@@ -22,6 +22,11 @@ class RedactedHelpersTest < ActionView::TestCase
     assert @redacted_html.include?('</span>')
   end
 
+  test '#ascii_redact returns ascii blocks of same length' do
+    assert_equal ["\u2588"], ascii_redact(@phrase).split('').uniq
+    assert_equal ("\u2588" * @phrase.length), ascii_redact(@phrase)
+  end
+
   private
   def html_text(redacted_html)
     strip_tags(redacted_html)
