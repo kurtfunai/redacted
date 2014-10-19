@@ -9,3 +9,30 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, molestias mai
 <p><%= redact_html('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, molestias maiores sit doloribus officiis quibusdam quod perspiciatis minus cupiditate necessitatibus vitae architecto atque error eaque repellat et quae aliquam tenetur!') %></p>
 
 <p>All of the maple syrup was stolen by <%= redact_html('aliens.') %></p>
+
+<br><br><br><br>
+<%
+@new_lines =  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, provident, cupiditate iusto magni eius tenetur voluptates quisquam nobis modi alias quia vitae necessitatibus et adipisci sunt placeat reprehenderit non molestiae.
+Quas, possimus unde a cumque quasi. Saepe aliquam ex nobis autem recusandae minus libero! Facere incidunt optio repellat aperiam autem quam non dolore recusandae. Perspiciatis corporis beatae maxime illum quis.
+Non aliquid architecto optio provident sequi placeat cupiditate similique voluptate eveniet nesciunt? Nisi, sint, veniam, delectus, obcaecati rem nobis veritatis explicabo saepe velit et impedit quae possimus qui quidem repellendus.'
+%>
+<%= @new_lines.html_safe %>
+<br>
+<%= redact_html(@new_lines).html_safe %>
+
+<br><br><br><br>
+<%
+@p_tags = '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, tempora, qui temporibus ut a sapiente natus voluptate incidunt soluta velit ullam recusandae veniam nulla. A laboriosam reprehenderit esse quas voluptates!</p><p>Esse, similique, deleniti neque fuga ea perferendis praesentium vitae nam repudiandae atque labore nostrum autem omnis iusto in dolore blanditiis doloremque quae ut maxime placeat quo sit. Earum, enim, pariatur!</p>'
+%>
+<%= @p_tags.html_safe %>
+<br>
+<%= redact_html(@p_tags).html_safe %>
+
+
+<br><br><br><br>
+<%
+@br = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, tempora, qui temporibus ut a sapiente natus voluptate incidunt soluta velit ullam recusandae veniam nulla. A laboriosam reprehenderit esse quas voluptates!<br>Esse, similique, deleniti neque fuga ea perferendis praesentium vitae nam repudiandae atque labore nostrum autem omnis iusto in dolore blanditiis doloremque quae ut maxime placeat quo sit. Earum, enim, pariatur!'
+%>
+<%= @br.html_safe %>
+<br>
+<%= redact_html(@br).html_safe %>
