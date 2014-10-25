@@ -5,19 +5,24 @@ class RedactedHelpersTest < ActionView::TestCase
 
   def setup
     @phrase = "Canada's maple syrup was stolen by grizzly bears"
-    @redacted_html = redact_html(@phrase)
+    @paragraphs = "This one paragraph.\n\nThis is two."
+    @redacted_html = redacted_html(@phrase)
   end
 
-  test '#redact_html returns string of random text' do
+  test '#redact splits into paragraphs' do
+    assert_equal 2, redact(@paragraphs).size
+  end
+
+  test '#redacted_html returns string of random text' do
     refute_equal html_text(@redacted_html), @phrase
     refute html_text(@redacted_html).include?(@phrase)
   end
 
-  test '#redact_html returns string of same length' do
+  test '#redacted_html returns string of same length' do
     assert_equal @phrase.length, html_text(@redacted_html).length
   end
 
-  test '#redact_html creates span tags with class .redacted-text' do
+  test '#redacted_html creates span tags with class .redacted-text' do
     assert @redacted_html.include?('<span class="redacted-text">')
     assert @redacted_html.include?('</span>')
   end

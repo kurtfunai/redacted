@@ -3,12 +3,12 @@
 
 <h3>Example:</h3>
 <p>All of the maple syrup was stolen by aliens.</p>
-<p><%= redact_html('All of the maple syrup was stolen by aliens.') %></p>
+<p><%= redacted_html('All of the maple syrup was stolen by aliens.') %></p>
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, molestias maiores sit doloribus officiis quibusdam quod perspiciatis minus cupiditate necessitatibus vitae architecto atque error eaque repellat et quae aliquam tenetur!
-<p><%= redact_html('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, molestias maiores sit doloribus officiis quibusdam quod perspiciatis minus cupiditate necessitatibus vitae architecto atque error eaque repellat et quae aliquam tenetur!') %></p>
+<p><%= redacted_html('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, molestias maiores sit doloribus officiis quibusdam quod perspiciatis minus cupiditate necessitatibus vitae architecto atque error eaque repellat et quae aliquam tenetur!') %></p>
 
-<p>All of the maple syrup was stolen by <%= redact_html('aliens.') %></p>
+<p>All of the maple syrup was stolen by <%= redacted_html('aliens.') %></p>
 
 <br><br><br><br>
 <%
@@ -18,7 +18,7 @@ Non aliquid architecto optio provident sequi placeat cupiditate similique volupt
 %>
 <%= @new_lines.html_safe %>
 <br>
-<%= redact_html(@new_lines).html_safe %>
+<%= redacted_html(@new_lines).html_safe %>
 
 <br><br><br><br>
 <%
@@ -26,7 +26,7 @@ Non aliquid architecto optio provident sequi placeat cupiditate similique volupt
 %>
 <%= @p_tags.html_safe %>
 <br>
-<%= redact_html(@p_tags).html_safe %>
+<%= redacted_html(@p_tags).html_safe %>
 
 
 <br><br><br><br>
@@ -35,4 +35,4 @@ Non aliquid architecto optio provident sequi placeat cupiditate similique volupt
 %>
 <%= @br.html_safe %>
 <br>
-<%= redact_html(@br).html_safe %>
+<%= redacted_html(@br).html_safe %>
