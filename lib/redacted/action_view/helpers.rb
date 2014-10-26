@@ -7,8 +7,16 @@ module Redacted
       end
 
       def redact str
+        if str.include?("\n")
+          redact_paragraphs(str).join('')
+        else
+          redacted_html(str)
+        end
+      end
+
+      def redact_paragraphs str
         str.lines.map do |l|
-          redacted_html(l.chomp) if l.chomp.present?
+          "<p>#{redacted_html(l.chomp)}</p>" if l.chomp.present?
         end.reject{|l|l.nil?}
       end
 
