@@ -6,7 +6,7 @@ class RedactedHelpersTest < ActionView::TestCase
   def setup
     @phrase = "Canada's maple syrup was stolen by grizzly bears"
     @paragraphs = "This one paragraph.\nThis is two.\n\nThis is three!\r\nThis is four?"
-    @redacted_html = redacted_html(@phrase)
+    @redact_text = redact_text(@phrase)
   end
 
   test '#redact returns single line when passed string without characters' do
@@ -27,18 +27,18 @@ class RedactedHelpersTest < ActionView::TestCase
     assert_equal 4, redact_paragraphs(@paragraphs).size
   end
 
-  test '#redacted_html returns string of random text' do
-    refute_equal html_text(@redacted_html), @phrase
-    refute html_text(@redacted_html).include?(@phrase)
+  test '#redact_text returns string of random text' do
+    refute_equal html_text(@redact_text), @phrase
+    refute html_text(@redact_text).include?(@phrase)
   end
 
-  test '#redacted_html returns string of same length' do
-    assert_equal @phrase.length, html_text(@redacted_html).length
+  test '#redact_text returns string of same length' do
+    assert_equal @phrase.length, html_text(@redact_text).length
   end
 
-  test '#redacted_html creates span tags with class .redacted-text' do
-    assert @redacted_html.include?('<span class="redacted-text">')
-    assert @redacted_html.include?('</span>')
+  test '#redact_text creates span tags with class .redacted-text' do
+    assert @redact_text.include?('<span class="redacted-text">')
+    assert @redact_text.include?('</span>')
   end
 
   test '#ascii_redact returns ascii blocks of same length' do
@@ -47,7 +47,7 @@ class RedactedHelpersTest < ActionView::TestCase
   end
 
   private
-  def html_text(redacted_html)
-    strip_tags(redacted_html)
+  def html_text(redact_text)
+    strip_tags(redact_text)
   end
 end

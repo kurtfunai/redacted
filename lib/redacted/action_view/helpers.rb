@@ -10,17 +10,17 @@ module Redacted
         if str.include?("\n")
           redact_paragraphs(str).join('')
         else
-          redacted_html(str)
+          redact_text(str)
         end
       end
 
       def redact_paragraphs str
         str.lines.map do |l|
-          "<p>#{redacted_html(l.chomp)}</p>" if l.chomp.present?
+          "<p>#{redact_text(l.chomp)}</p>" if l.chomp.present?
         end.reject{|l|l.nil?}
       end
 
-      def redacted_html str
+      def redact_text str
         return '' unless str
         "<span class=\"redacted-text\">#{generate_fake_text(str)}</span>".html_safe
       end

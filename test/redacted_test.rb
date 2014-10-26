@@ -19,7 +19,11 @@ class RedactedTest < ActionDispatch::IntegrationTest
     assert(Redacted::ActionView::Helpers.method_defined?(:redact), '#redact is not defined')
   end
 
-  test 'helper method redacted_html is defined' do
-    assert(Redacted::ActionView::Helpers.method_defined?(:redacted_html), '#redacted_html is not defined')
+  test 'helper method redact_text is defined' do
+    assert(Redacted::ActionView::Helpers.method_defined?(:redact_text), '#redact_text is not defined')
+  end
+
+  test 'helper method redact_paragraphs is defined' do
+    assert(Redacted::ActionView::Helpers.method_defined?(:redact_paragraphs), '#redact_paragraphs is not defined')
   end
 end
