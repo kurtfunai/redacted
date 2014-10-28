@@ -8,9 +8,9 @@ module Redacted
 
       def redact str
         if str.include?("\n")
-          redact_paragraphs(str).join('')
+          redact_paragraphs(str).join('').html_safe
         else
-          redact_text(str)
+          redact_text(str).html_safe
         end
       end
 
@@ -22,7 +22,15 @@ module Redacted
 
       def redact_text str
         return '' unless str
-        "<span class=\"redacted-text\">#{generate_fake_text(str)}</span>".html_safe
+        "<span class=\"redacted-text\">#{generate_fake_text(str)}</span>"
+      end
+
+      def redact_html html_str
+        doc = Nokogiri::HTML::DocumentFragment.parse(html_str)
+        doc.traverse do |ele|
+          ele.replace(redact_text(ele.content.chomp)) if ele.text?
+        end
+        doc.to_html
       end
 
       private
