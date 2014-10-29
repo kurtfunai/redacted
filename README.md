@@ -8,14 +8,18 @@ Basically it takes text like `My maple syrup was stolen by a moose!` and turns i
 
 Add this line to your application's Gemfile:
 
-    gem 'redacted'
+```ruby
+gem 'redacted'
+```
 
 And then execute:
 
-    $ bundle
+```bash
+$ bundle
+```
 
 In your application.css, include the css file:
-```
+```css
 /*
  *= require redacted
  */
