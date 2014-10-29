@@ -2,7 +2,7 @@
 
 The goal of Redacted is to take a block of text, turn it into Lorem ipsum of the same size, and then apply styles with CSS to make the text appear redacted! Just like top secret documents.
 
-Basically it takes text like `My maple syrup was stolen by a moose!` and turns it into a blacked out block to text that is roughly the same size!
+Basically it takes a string like `My maple syrup was stolen by a moose!` and turns it into a blacked-out block of text that is roughly the same size.
 
 ## Installation
 
@@ -52,6 +52,7 @@ The `#redact` method will try to guess if the text should be inline or not, but 
 redact_html('<p>A mind needs books as a sword needs a whetstone<br>if it is to keep its edge.</p><div>- George R.R. Martin, A Game of Thrones</div>')
 #=> <p>adipisci labore quae perferendis impedit autem <br>odit impedit dolorem rerum</p><div>et quibusdam qui quis accusantium ullam</div>
 ```
+Redacted parses the HTML string and replaces the text with lorem ipsum while maintaining the original HTML structure.
 
 ## How it works
 Redacted takes text like `Winter is coming.` and replaces it with lorem ipsum of the same string length.
