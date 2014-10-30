@@ -1,5 +1,5 @@
 # Redacted
-[![Code Climate](https://codeclimate.com/github/kurtfunai/redacted/badges/gpa.svg)](https://codeclimate.com/github/kurtfunai/redacted)
+[![Circle CI](https://circleci.com/gh/kurtfunai/redacted/tree/master.png?style=badge)](https://circleci.com/gh/kurtfunai/redacted/tree/master) [![Code Climate](https://codeclimate.com/github/kurtfunai/redacted/badges/gpa.svg)](https://codeclimate.com/github/kurtfunai/redacted)
 
 The goal of Redacted is to take text like `My maple syrup was stolen by a moose!` and black it out, just like on a top secret document!
 
