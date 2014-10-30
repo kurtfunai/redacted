@@ -1,19 +1,20 @@
 # Redacted
+[![Code Climate](https://codeclimate.com/github/kurtfunai/redacted/badges/gpa.svg)](https://codeclimate.com/github/kurtfunai/redacted)
 
-The goal of Redacted is to take a block of text, turn it into Lorem ipsum of the same size, and then apply styles with CSS to make the text appear redacted! Just like top secret documents.
+The goal of Redacted is to take text like `My maple syrup was stolen by a moose!` and black it out, just like on a top secret document!
 
-Basically it takes a string like `My maple syrup was stolen by a moose!` and turns it into a blacked-out block of text that is roughly the same size.
+To keep the redacted information private, it turns the text into [Lorem ipsum](http://www.lipsum.com/). It tries its best to maintain the same size & shape of the text that is being redacted.
+
+Redacted works with both plain text and HTML.
 
 ## Installation
 
 Add this line to your application's Gemfile:
-
 ```ruby
 gem 'redacted'
 ```
 
 And then execute:
-
 ```bash
 $ bundle
 ```
@@ -24,32 +25,29 @@ In your application.css, include the css file:
  *= require redacted
  */
 ```
-## Usage
 
-Redacted will convert both plaintext and HTML into redacted text.
+## Usage
 
 After installing the gem, you will have access to a couple new methods in your Rails Views.
 
-**Plain text (inline):**
+**redact(str)**
 ```ruby
-<%= redact('All of the maple syrup was stolen by aliens.')=>
+# Plain text (inline):
+<%= redact("All of the maple syrup was stolen by aliens.")=>
 #=> Iusto eos eligendi non iure rerum quia accus
 
-All of the maple syrup was stolen by <%= redact('aliens')=>.
+All of the maple syrup was stolen by <%= redact("aliens')=>.
 #=> All of the maple syrup was stolen by ducimu
-```
-The plain text method can create inline redacted text, or write out paragraphs to maintain the size/shape of paragraphs.
 
-**Plain text (paragraphs):**
-```ruby
-<%= redact('Roses are red.\nViolets are blue.\n\nAll our base\r\n are belong to you.')=>
-#=> <p>Roses are red.</p><p>Violets are blue.</p><p>All our base</p><p>are belong to you.</p>
+# Plain text (paragraphs):
+<%= redact("Roses are red.\nViolets are blue.\n\nAll our base\r\n are belong to you.')=>
+#=> <p>consequatur et</p><p>excepturi sed dol</p><p>maxime id su</p><p>at non quia nonotas</p>
 ```
-The `#redact` method will try to guess if the text should be inline or not, but you can also explictly call `redact_text` or `redact_paragraphs` if you want specific functionality.
+The `#redact` method will try to guess if the text should be inline or not, but you can also explictly call `redact_text(str)` for inline rendering, or `redact_paragraphs(str)` for paragraphs wrapped in `<p>` tags.
 
-**HTML**
+**redact_html(html_str)**
 ```ruby
-redact_html('<p>A mind needs books as a sword needs a whetstone<br>if it is to keep its edge.</p><div>- George R.R. Martin, A Game of Thrones</div>')
+redact_html("<p>A mind needs books as a sword needs a whetstone<br>if it is to keep its edge.</p><div>- George R.R. Martin, A Game of Thrones</div>")
 #=> <p>adipisci labore quae perferendis impedit autem <br>odit impedit dolorem rerum</p><div>et quibusdam qui quis accusantium ullam</div>
 ```
 Redacted parses the HTML string and replaces the text with lorem ipsum while maintaining the original HTML structure.
@@ -59,7 +57,7 @@ Redacted takes text like `Winter is coming.` and replaces it with lorem ipsum of
 
 It then returns the redacted text surrounded by `<span></span>` tags that have the class `.redacted-text`.
 ```ruby
-redact('Winter is coming.')
+redact("Winter is coming.")
 ```
 Becomes:
 ```html
