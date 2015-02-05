@@ -33,14 +33,14 @@ After installing the gem, you will have access to a couple new methods in your R
 **redact(str)**
 ```ruby
 # Plain text (inline):
-<%= redact("All of the maple syrup was stolen by aliens.")=>
+<%= redact("All of the maple syrup was stolen by aliens.") %>
 #=> Iusto eos eligendi non iure rerum quia accus
 
-All of the maple syrup was stolen by <%= redact("aliens')=>.
+All of the maple syrup was stolen by <%= redact("aliens") %>.
 #=> All of the maple syrup was stolen by ducimu
 
 # Plain text (paragraphs):
-<%= redact("Roses are red.\nViolets are blue.\n\nAll our base\r\n are belong to you.')=>
+<%= redact("Roses are red.\nViolets are blue.\n\nAll our base\r\n are belong to you.") %>
 #=> <p>consequatur et</p><p>excepturi sed dol</p><p>maxime id su</p><p>at non quia nonotas</p>
 ```
 The `#redact` method will try to guess if the text should be inline or not, but you can also explictly call `redact_text(str)` for inline rendering, or `redact_paragraphs(str)` for paragraphs wrapped in `<p>` tags.
