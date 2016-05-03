@@ -33,8 +33,8 @@ After installing the gem, you will have access to a couple new methods in your R
 **redact(str)**
 ```ruby
 # Plain text (inline):
-<%= redact("All of the maple syrup was stolen by aliens.") %>
-#=> Iusto eos eligendi non iure rerum quia accus
+<%= redact("You know nothing Jon Snow") %>
+#=> Iusto eos eligendi non iu
 
 All of the maple syrup was stolen by <%= redact("aliens") %>.
 #=> All of the maple syrup was stolen by ducimu
