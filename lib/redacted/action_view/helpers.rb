@@ -36,8 +36,8 @@ module Redacted
       private
       def generate_fake_text str
         word_count = str.split.size
-        fake_text = Faker::Lorem.words(word_count).join(' ')
-        fake_text << Faker::Lorem.characters(str.length - fake_text.length) if str.length > fake_text.length
+        fake_text = FFaker::Lorem.words(word_count).join(' ')
+        fake_text << FFaker::Lorem.characters(str.length - fake_text.length) if str.length > fake_text.length
         fake_text.slice(0, str.length)
       end
     end
