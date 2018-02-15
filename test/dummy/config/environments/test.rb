@@ -30,7 +30,7 @@ Rails.application.configure do
   # ActionMailer::Base.deliveries array.
   # config.action_mailer.delivery_method = :test
 
-  config.active_support.test_order = :sorted
+  config.active_support.test_order = :random
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
