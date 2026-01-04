@@ -47,10 +47,12 @@ The `#redact` method will try to guess if the text should be inline or not, but 
 
 **redact_html(html_str)**
 ```ruby
-redact_html("<p>A mind needs books as a sword needs a whetstone<br>if it is to keep its edge.</p><div>- George R.R. Martin, A Game of Thrones</div>")
+redact_html("<p>A mind needs books as a sword needs a whetstone<br>if it is to keep its edge.</p><div>- George R.R. Martin, A Game of Thrones</div>").html_safe
 #=> <p>adipisci labore quae perferendis impedit autem <br>odit impedit dolorem rerum</p><div>et quibusdam qui quis accusantium ullam</div>
 ```
 Redacted parses the HTML string and replaces the text with lorem ipsum while maintaining the original HTML structure.
+
+**Note:** `redact_html` returns a string, so you must call `.html_safe` on the output to render it as HTML in your views.
 
 ## How it works
 Redacted takes text like `Winter is coming.` and replaces it with lorem ipsum of the same string length.
